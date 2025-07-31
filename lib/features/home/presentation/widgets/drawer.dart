@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../../../../l10n/app_localizations.dart';
 
 class AppDrawer extends StatefulWidget {
   const AppDrawer({super.key});
@@ -54,6 +55,8 @@ class _AppDrawerState extends State<AppDrawer> {
 
   @override
   Widget build(BuildContext context) {
+    final localizations = AppLocalizations.of(context)!;
+
     return Drawer(
       child: ListView(
         padding: EdgeInsets.zero,
@@ -73,9 +76,9 @@ class _AppDrawerState extends State<AppDrawer> {
                       width: 40,
                     ),
                     const SizedBox(width: 12),
-                    const Text(
-                      'شمسية التعليمية',
-                      style: TextStyle(
+                    Text(
+                      localizations.shamsiehEducation,
+                      style: const TextStyle(
                         color: Colors.white,
                         fontSize: 20,
                         fontWeight: FontWeight.bold,
@@ -84,14 +87,14 @@ class _AppDrawerState extends State<AppDrawer> {
                   ],
                 ),
                 const SizedBox(height: 8),
-                const Text(
-                  'Shamsieh Education',
-                  style: TextStyle(color: Colors.white70, fontSize: 14),
+                Text(
+                  localizations.shamsiehEducation,
+                  style: const TextStyle(color: Colors.white70, fontSize: 14),
                 ),
                 const Spacer(),
-                const Text(
-                  'Educational Platform',
-                  style: TextStyle(color: Colors.white60, fontSize: 12),
+                Text(
+                  localizations.educationalPlatform,
+                  style: const TextStyle(color: Colors.white60, fontSize: 12),
                 ),
               ],
             ),
@@ -100,7 +103,7 @@ class _AppDrawerState extends State<AppDrawer> {
           // Menu Items
           ListTile(
             leading: const Icon(Icons.home),
-            title: const Text('الصفحة الرئيسية'),
+            title: Text(localizations.home),
             tileColor: currentPage == 'home' ? Colors.cyan : null,
             textColor: currentPage == 'home' ? Colors.white : null,
             iconColor: currentPage == 'home' ? Colors.white : null,
@@ -114,8 +117,8 @@ class _AppDrawerState extends State<AppDrawer> {
           ),
 
           ListTile(
-            leading: const Icon(Icons.school),
-            title: const Text('الدليل التعليمي'),
+            leading: const Icon(Icons.language),
+            title: Text(localizations.chooseLanguage),
             tileColor: currentPage == 'guide' ? Colors.cyan : null,
             textColor: currentPage == 'guide' ? Colors.white : null,
             iconColor: currentPage == 'guide' ? Colors.white : null,
@@ -130,7 +133,7 @@ class _AppDrawerState extends State<AppDrawer> {
 
           ListTile(
             leading: const Icon(Icons.announcement),
-            title: const Text('خدمات اعلانية'),
+            title: Text(localizations.advertisingServices),
             tileColor: currentPage == 'announcements' ? Colors.cyan : null,
             textColor: currentPage == 'announcements' ? Colors.white : null,
             iconColor: currentPage == 'announcements' ? Colors.white : null,
@@ -145,7 +148,7 @@ class _AppDrawerState extends State<AppDrawer> {
 
           ListTile(
             leading: const Icon(Icons.person),
-            title: const Text('الملف الشخصي'),
+            title: Text(localizations.profile),
             tileColor: currentPage == 'profile' ? Colors.cyan : null,
             textColor: currentPage == 'profile' ? Colors.white : null,
             iconColor: currentPage == 'profile' ? Colors.white : null,
@@ -162,7 +165,7 @@ class _AppDrawerState extends State<AppDrawer> {
 
           ListTile(
             leading: const Icon(Icons.settings),
-            title: const Text('الإعدادات'),
+            title: Text(localizations.settings),
             tileColor: currentPage == 'settings' ? Colors.cyan : null,
             textColor: currentPage == 'settings' ? Colors.white : Colors.grey,
             iconColor: currentPage == 'settings' ? Colors.white : Colors.grey,
@@ -177,7 +180,7 @@ class _AppDrawerState extends State<AppDrawer> {
 
           ListTile(
             leading: const Icon(Icons.help),
-            title: const Text('المساعدة'),
+            title: Text(localizations.help),
             tileColor: currentPage == 'help' ? Colors.cyan : null,
             textColor: currentPage == 'help' ? Colors.white : Colors.grey,
             iconColor: currentPage == 'help' ? Colors.white : Colors.grey,
@@ -192,7 +195,7 @@ class _AppDrawerState extends State<AppDrawer> {
 
           ListTile(
             leading: const Icon(Icons.info),
-            title: const Text('حول التطبيق'),
+            title: Text(localizations.about),
             tileColor: currentPage == 'about' ? Colors.cyan : null,
             textColor: currentPage == 'about' ? Colors.white : Colors.grey,
             iconColor: currentPage == 'about' ? Colors.white : Colors.grey,
@@ -209,7 +212,7 @@ class _AppDrawerState extends State<AppDrawer> {
 
           ListTile(
             leading: const Icon(Icons.logout, color: Colors.red),
-            title: const Text('تسجيل الخروج'),
+            title: Text(localizations.logout),
             onTap: () {
               Navigator.pop(context);
               // Add logout logic here
@@ -222,21 +225,23 @@ class _AppDrawerState extends State<AppDrawer> {
   }
 
   void _showLogoutDialog(BuildContext context) {
+    final localizations = AppLocalizations.of(context)!;
+
     showDialog(
       context: context,
       builder: (BuildContext context) {
         return AlertDialog(
-          title: const Text('تسجيل الخروج'),
-          content: const Text('هل أنت متأكد من رغبتك في تسجيل الخروج؟'),
+          title: Text(localizations.confirmLogout),
+          content: Text(localizations.logoutMessage),
           actions: [
             TextButton(
-              child: const Text('إلغاء'),
+              child: Text(localizations.cancel),
               onPressed: () {
                 Navigator.of(context).pop();
               },
             ),
             TextButton(
-              child: const Text('تسجيل الخروج'),
+              child: Text(localizations.logout),
               onPressed: () {
                 Navigator.of(context).pop();
                 // Add actual logout logic here

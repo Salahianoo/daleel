@@ -50,9 +50,15 @@ class HorizontalCategorySection extends StatelessWidget {
                           ),
                         ),
                         const SizedBox(height: 6),
-                        Text(
-                          categories[index],
-                          style: const TextStyle(fontSize: 12),
+                        SizedBox(
+                          width: 70, // Fixed width to prevent overflow
+                          child: Text(
+                            categories[index],
+                            style: const TextStyle(fontSize: 12),
+                            textAlign: TextAlign.center,
+                            overflow: TextOverflow.ellipsis,
+                            maxLines: 2,
+                          ),
                         ),
                       ],
                     ),

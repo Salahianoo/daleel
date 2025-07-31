@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../../../../l10n/app_localizations.dart';
 import 'drawer.dart';
 
 class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
@@ -6,6 +7,8 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
 
   @override
   Widget build(BuildContext context) {
+    final localizations = AppLocalizations.of(context)!;
+
     return AppBar(
       backgroundColor: Colors.white,
       elevation: 0,
@@ -15,9 +18,12 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
           onPressed: () => Scaffold.of(context).openDrawer(),
         ),
       ),
-      title: const Text(
-        "شمسية التعليمية",
-        style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold),
+      title: Text(
+        localizations.shamsiehEducation,
+        style: const TextStyle(
+          color: Colors.black,
+          fontWeight: FontWeight.bold,
+        ),
       ),
       centerTitle: true,
       actions: [

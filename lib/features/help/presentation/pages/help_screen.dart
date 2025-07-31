@@ -1,27 +1,30 @@
 import 'package:flutter/material.dart';
 import '../../../home/presentation/widgets/custom_app_bar.dart';
+import '../../../../l10n/app_localizations.dart';
 
 class HelpScreen extends StatelessWidget {
   const HelpScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return const CustomScaffold(
-      title: 'المساعدة',
+    final localizations = AppLocalizations.of(context)!;
+
+    return CustomScaffold(
+      title: localizations.help,
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Icon(Icons.help, size: 100, color: Color(0xFF1DD3B0)),
-            SizedBox(height: 20),
+            const Icon(Icons.help, size: 100, color: Color(0xFF1DD3B0)),
+            const SizedBox(height: 20),
             Text(
-              'المساعدة',
-              style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+              localizations.help,
+              style: const TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
             ),
-            SizedBox(height: 10),
+            const SizedBox(height: 10),
             Text(
-              'قريباً...',
-              style: TextStyle(fontSize: 16, color: Colors.grey),
+              localizations.comingSoon,
+              style: const TextStyle(fontSize: 16, color: Colors.grey),
             ),
           ],
         ),

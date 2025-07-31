@@ -4,6 +4,7 @@ import 'package:carousel_slider/carousel_slider.dart';
 import '../widgets/drawer.dart';
 import '../widgets/horizontal_category_section.dart';
 import '../../../University/University_main_screen.dart';
+import '../../../../l10n/app_localizations.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -17,6 +18,8 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final localizations = AppLocalizations.of(context)!;
+
     return Scaffold(
       drawer: const AppDrawer(),
       appBar: const CustomAppBar(),
@@ -170,12 +173,12 @@ class _HomeScreenState extends State<HomeScreen> {
             // Guide section
             HorizontalCategorySection(
               categories: [
-                'جامعة',
-                'مدرسة', 
-                'حضانه',
-                'روضة',
-                'كلية',
-                'احتياجات'
+                localizations.university,
+                localizations.school,
+                localizations.nursery,
+                localizations.kindergarten,
+                localizations.college,
+                localizations.needs,
               ],
               backgroundColor: const Color(0xFF1DD3B0),
               icons: [
@@ -187,7 +190,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 Icons.category,
               ],
               onCategoryTap: (index, category) {
-                if (category == 'جامعة') {
+                if (category == localizations.university) {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
@@ -201,12 +204,12 @@ class _HomeScreenState extends State<HomeScreen> {
             // Announcements section
             HorizontalCategorySection(
               categories: [
-                'عروض خاصة',
-                'فعاليات ايفنت', 
-                'دورات تدريبية',
-                'وظائف شاغرة',
-                'منح دراسية',
-                'أعمال تطوعية'
+                localizations.specialOffers,
+                localizations.events,
+                localizations.trainingCourses,
+                localizations.jobs,
+                localizations.scholarships,
+                localizations.volunteerWork,
               ],
               backgroundColor: Colors.grey[500]!,
               icons: [
