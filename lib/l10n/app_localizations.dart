@@ -188,6 +188,30 @@ abstract class AppLocalizations {
   /// **'Settings'**
   String get settings;
 
+  /// No description provided for @darkMode.
+  ///
+  /// In en, this message translates to:
+  /// **'Dark Mode'**
+  String get darkMode;
+
+  /// No description provided for @lightMode.
+  ///
+  /// In en, this message translates to:
+  /// **'Light Mode'**
+  String get lightMode;
+
+  /// No description provided for @switchToDarkTheme.
+  ///
+  /// In en, this message translates to:
+  /// **'Switch to dark theme'**
+  String get switchToDarkTheme;
+
+  /// No description provided for @switchToLightTheme.
+  ///
+  /// In en, this message translates to:
+  /// **'Switch to light theme'**
+  String get switchToLightTheme;
+
   /// No description provided for @help.
   ///
   /// In en, this message translates to:
@@ -284,12 +308,6 @@ abstract class AppLocalizations {
   /// **'Credit hour starts from'**
   String get creditHourPrice;
 
-  /// No description provided for @location.
-  ///
-  /// In en, this message translates to:
-  /// **'Location'**
-  String get location;
-
   /// No description provided for @call.
   ///
   /// In en, this message translates to:
@@ -338,7 +356,7 @@ abstract class AppLocalizations {
   /// **'Educational Platform'**
   String get educationalPlatform;
 
-  /// No description provided for @chooseAdOrSubscription.
+  /// Advertisement service main title
   ///
   /// In en, this message translates to:
   /// **'Choose the right ad or subscription'**
@@ -440,7 +458,7 @@ abstract class AppLocalizations {
   /// **'Coming Soon...'**
   String get comingSoon;
 
-  /// No description provided for @university.
+  /// Home screen categories section
   ///
   /// In en, this message translates to:
   /// **'University'**
@@ -512,7 +530,7 @@ abstract class AppLocalizations {
   /// **'Volunteer Work'**
   String get volunteerWork;
 
-  /// No description provided for @website.
+  /// University action buttons section
   ///
   /// In en, this message translates to:
   /// **'Website'**
@@ -560,7 +578,7 @@ abstract class AppLocalizations {
   /// **'12 km north of the capital Amman'**
   String get distanceFromCapital;
 
-  /// No description provided for @ammanAhliaUniversity.
+  /// University names section
   ///
   /// In en, this message translates to:
   /// **'Amman Ahlia University'**
@@ -584,7 +602,73 @@ abstract class AppLocalizations {
   /// **'American University of Madaba'**
   String get americanUniversityMadaba;
 
-  /// No description provided for @version.
+  /// Location information section
+  ///
+  /// In en, this message translates to:
+  /// **'Location'**
+  String get location;
+
+  /// No description provided for @locationInfo.
+  ///
+  /// In en, this message translates to:
+  /// **'Location Information'**
+  String get locationInfo;
+
+  /// No description provided for @close.
+  ///
+  /// In en, this message translates to:
+  /// **'Close'**
+  String get close;
+
+  /// No description provided for @contactInfo.
+  ///
+  /// In en, this message translates to:
+  /// **'Contact Information'**
+  String get contactInfo;
+
+  /// No description provided for @yourLocation.
+  ///
+  /// In en, this message translates to:
+  /// **'Your Location'**
+  String get yourLocation;
+
+  /// No description provided for @currentLocation.
+  ///
+  /// In en, this message translates to:
+  /// **'Current location'**
+  String get currentLocation;
+
+  /// No description provided for @locationFound.
+  ///
+  /// In en, this message translates to:
+  /// **'Location found!'**
+  String get locationFound;
+
+  /// No description provided for @locationServiceDisabled.
+  ///
+  /// In en, this message translates to:
+  /// **'Location service is disabled'**
+  String get locationServiceDisabled;
+
+  /// No description provided for @locationPermissionDenied.
+  ///
+  /// In en, this message translates to:
+  /// **'Location permission denied'**
+  String get locationPermissionDenied;
+
+  /// No description provided for @couldNotGetLocation.
+  ///
+  /// In en, this message translates to:
+  /// **'Could not get location data'**
+  String get couldNotGetLocation;
+
+  /// No description provided for @errorGettingLocation.
+  ///
+  /// In en, this message translates to:
+  /// **'Error getting location'**
+  String get errorGettingLocation;
+
+  /// App version information
   ///
   /// In en, this message translates to:
   /// **'Version 1.0.0'**

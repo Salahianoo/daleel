@@ -1,4 +1,5 @@
 {
+    "@@locale": "ar",
     "language": "العربية",
     "appTitle": "دليل",
     "selectLanguage": "اختر اللغة",
@@ -14,6 +15,10 @@
     "advertisingServices": "خدمات اعلانية",
     "profile": "الملف الشخصي",
     "settings": "الإعدادات",
+    "darkMode": "الوضع المظلم",
+    "lightMode": "الوضع الفاتح", 
+    "switchToDarkTheme": "التبديل إلى الوضع المظلم",
+    "switchToLightTheme": "التبديل إلى الوضع الفاتح",
     "help": "المساعدة",
     "about": "حول التطبيق",
     "logout": "تسجيل الخروج",
@@ -40,7 +45,6 @@
     "shamsiehEducation": "شمسية التعليمية",
     "educationalPlatform": "منصة تعليمية",
     
-    "@comment_advertisement": "Advertisement Service Translations",
     "chooseAdOrSubscription": "اختر الإعلان أو الاشتراك المناسب",
     "marketingServices": "استفد من خدماتنا التقنية و الإعلانية لتسويق مؤسستك بشكل احترافي و زيادة عدد المشاهدات والتسجيل!",
     "specialOffer": "عرض خاص",
@@ -59,7 +63,6 @@
     "subscribeNow": "اشترك الآن",
     "comingSoon": "قريباً...",
     
-    "@comment_home_categories": "Home Screen Categories",
     "university": "جامعة",
     "school": "مدرسة", 
     "nursery": "حضانه",
@@ -73,7 +76,6 @@
     "scholarships": "منح دراسية",
     "volunteerWork": "أعمال تطوعية",
     
-    "@comment_university_actions": "University Action Buttons",
     "website": "الموقع",
     "numberOfSpecializations": "عدد التخصصات",
     "minimumCreditHours": "أقل عدد ساعات",
@@ -83,13 +85,22 @@
     "campusLocation": "البقاء: عين الباشا، شارع الأردن - منطقة موبص",
     "distanceFromCapital": "تبعد 12 كم الشمال من العاصمة عمان",
     
-    "@comment_university_names": "University Names",
     "ammanAhliaUniversity": "جامعة عمان الأهلية",
     "ammanArabUniversity": "جامعة عمان العربية", 
     "irbidNationalUniversity": "جامعة إربد الأهلية",
     "americanUniversityMadaba": "الجامعة الأمريكية في مادبا",
     
-    "@comment_version": "App Version",
+    "locationInfo": "معلومات الموقع",
+    "close": "إغلاق",
+    "contactInfo": "معلومات الاتصال",
+    "yourLocation": "موقعك",
+    "currentLocation": "الموقع الحالي",
+    "locationFound": "تم العثور على الموقع!",
+    "locationServiceDisabled": "خدمة الموقع معطلة",
+    "locationPermissionDenied": "تم رفض إذن الموقع",
+    "couldNotGetLocation": "لا يمكن الحصول على بيانات الموقع",
+    "errorGettingLocation": "خطأ في الحصول على الموقع",
+    
     "version": "الإصدار 1.0.0",
     "shamsiehEducationalApp": "تطبيق شمسية التعليمية"
 }

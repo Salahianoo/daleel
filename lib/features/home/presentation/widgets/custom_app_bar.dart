@@ -8,22 +8,20 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   @override
   Widget build(BuildContext context) {
     final localizations = AppLocalizations.of(context)!;
+    final theme = Theme.of(context);
 
     return AppBar(
-      backgroundColor: Colors.white,
-      elevation: 0,
+      backgroundColor: theme.appBarTheme.backgroundColor,
+      elevation: theme.appBarTheme.elevation,
       leading: Builder(
         builder: (context) => IconButton(
-          icon: const Icon(Icons.menu, color: Colors.black),
+          icon: Icon(Icons.menu, color: theme.appBarTheme.foregroundColor),
           onPressed: () => Scaffold.of(context).openDrawer(),
         ),
       ),
       title: Text(
         localizations.shamsiehEducation,
-        style: const TextStyle(
-          color: Colors.black,
-          fontWeight: FontWeight.bold,
-        ),
+        style: theme.appBarTheme.titleTextStyle,
       ),
       centerTitle: true,
       actions: [

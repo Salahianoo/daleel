@@ -1,3 +1,0 @@
-arb - dir: lib/i10n 
-template-arab-file: app_en.arb
-output-localization-file: app_localizations.dart

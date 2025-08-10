@@ -22,9 +22,7 @@ class _UniversityMainScreenState extends State<UniversityMainScreen> {
       builder: (context, languageState) {
         final languageCubit = context.read<LanguageCubit>();
 
-        return Scaffold(
-          backgroundColor: Colors.grey[100],
-          appBar: const CustomAppBar(),
+        return CustomScaffold(
           body: Column(
             children: [
               // Header section with title and icon

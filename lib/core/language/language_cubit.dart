@@ -41,7 +41,7 @@ class LanguageCubit extends Cubit<LanguageState> {
     try {
       final prefs = await SharedPreferences.getInstance();
       final savedLanguage = prefs.getString(_languageKey) ?? 'ar';
-      print('Loading saved language: $savedLanguage');
+
       emit(
         LanguageState(
           locale: Locale(savedLanguage),
@@ -49,7 +49,6 @@ class LanguageCubit extends Cubit<LanguageState> {
         ),
       );
     } catch (e) {
-      print('Error loading language, defaulting to Arabic: $e');
       emit(
         const LanguageState(
           locale: Locale('ar'),
@@ -61,7 +60,6 @@ class LanguageCubit extends Cubit<LanguageState> {
 
   void changeLanguage(String languageCode) async {
     try {
-      print('Changing language to: $languageCode');
       final prefs = await SharedPreferences.getInstance();
       await prefs.setString(_languageKey, languageCode);
       emit(
@@ -70,10 +68,7 @@ class LanguageCubit extends Cubit<LanguageState> {
           textDirection: _getTextDirection(languageCode),
         ),
       );
-      print('Language changed to: $languageCode');
-    } catch (e) {
-      print('Error changing language: $e');
-    }
+    } catch (e) {}
   }
 
   String get currentLanguageCode => state.locale.languageCode;

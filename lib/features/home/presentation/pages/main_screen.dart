@@ -1,7 +1,6 @@
 import 'package:daleel/features/home/presentation/widgets/custom_app_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
-import '../widgets/drawer.dart';
 import '../widgets/horizontal_category_section.dart';
 import '../../../University/University_main_screen.dart';
 import '../../../../l10n/app_localizations.dart';
@@ -20,9 +19,7 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     final localizations = AppLocalizations.of(context)!;
 
-    return Scaffold(
-      drawer: const AppDrawer(),
-      appBar: const CustomAppBar(),
+    return CustomScaffold(
       body: SingleChildScrollView(
         child: Column(
           children: [

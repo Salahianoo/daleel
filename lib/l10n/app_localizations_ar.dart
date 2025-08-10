@@ -54,6 +54,18 @@ class AppLocalizationsAr extends AppLocalizations {
   String get settings => 'الإعدادات';
 
   @override
+  String get darkMode => 'الوضع المظلم';
+
+  @override
+  String get lightMode => 'الوضع الفاتح';
+
+  @override
+  String get switchToDarkTheme => 'التبديل إلى الوضع المظلم';
+
+  @override
+  String get switchToLightTheme => 'التبديل إلى الوضع الفاتح';
+
+  @override
   String get help => 'المساعدة';
 
   @override
@@ -100,9 +112,6 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get creditHourPrice => 'الساعة المعتمدة تبدأ من';
-
-  @override
-  String get location => 'الموقع';
 
   @override
   String get call => 'اتصال';
@@ -253,6 +262,39 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get americanUniversityMadaba => 'الجامعة الأمريكية في مادبا';
+
+  @override
+  String get location => 'الموقع';
+
+  @override
+  String get locationInfo => 'معلومات الموقع';
+
+  @override
+  String get close => 'إغلاق';
+
+  @override
+  String get contactInfo => 'معلومات الاتصال';
+
+  @override
+  String get yourLocation => 'موقعك';
+
+  @override
+  String get currentLocation => 'الموقع الحالي';
+
+  @override
+  String get locationFound => 'تم العثور على الموقع!';
+
+  @override
+  String get locationServiceDisabled => 'خدمة الموقع معطلة';
+
+  @override
+  String get locationPermissionDenied => 'تم رفض إذن الموقع';
+
+  @override
+  String get couldNotGetLocation => 'لا يمكن الحصول على بيانات الموقع';
+
+  @override
+  String get errorGettingLocation => 'خطأ في الحصول على الموقع';
 
   @override
   String get version => 'الإصدار 1.0.0';

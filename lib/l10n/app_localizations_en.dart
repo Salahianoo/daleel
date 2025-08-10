@@ -54,6 +54,18 @@ class AppLocalizationsEn extends AppLocalizations {
   String get settings => 'Settings';
 
   @override
+  String get darkMode => 'Dark Mode';
+
+  @override
+  String get lightMode => 'Light Mode';
+
+  @override
+  String get switchToDarkTheme => 'Switch to dark theme';
+
+  @override
+  String get switchToLightTheme => 'Switch to light theme';
+
+  @override
   String get help => 'Help';
 
   @override
@@ -100,9 +112,6 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get creditHourPrice => 'Credit hour starts from';
-
-  @override
-  String get location => 'Location';
 
   @override
   String get call => 'Call';
@@ -254,6 +263,39 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get americanUniversityMadaba => 'American University of Madaba';
+
+  @override
+  String get location => 'Location';
+
+  @override
+  String get locationInfo => 'Location Information';
+
+  @override
+  String get close => 'Close';
+
+  @override
+  String get contactInfo => 'Contact Information';
+
+  @override
+  String get yourLocation => 'Your Location';
+
+  @override
+  String get currentLocation => 'Current location';
+
+  @override
+  String get locationFound => 'Location found!';
+
+  @override
+  String get locationServiceDisabled => 'Location service is disabled';
+
+  @override
+  String get locationPermissionDenied => 'Location permission denied';
+
+  @override
+  String get couldNotGetLocation => 'Could not get location data';
+
+  @override
+  String get errorGettingLocation => 'Error getting location';
 
   @override
   String get version => 'Version 1.0.0';

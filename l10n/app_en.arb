@@ -1,4 +1,5 @@
 {
+    "@@locale": "en",
     "language": "English",
     "appTitle": "Daleel",
     "selectLanguage": "Select Language",
@@ -14,6 +15,10 @@
     "advertisingServices": "Advertising Services",
     "profile": "Profile",
     "settings": "Settings",
+    "darkMode": "Dark Mode",
+    "lightMode": "Light Mode",
+    "switchToDarkTheme": "Switch to dark theme",
+    "switchToLightTheme": "Switch to light theme",
     "help": "Help",
     "about": "About App",
     "logout": "Logout",
@@ -30,7 +35,6 @@
     "creditHours": "credit hours",
     "transportation": "Transportation available",
     "creditHourPrice": "Credit hour starts from",
-    "location": "Location",
     "call": "Call",
     "message": "Message",
     "details": "Details",
@@ -40,8 +44,10 @@
     "shamsiehEducation": "Shamsieh Education",
     "educationalPlatform": "Educational Platform",
     
-    "@comment_advertisement": "Advertisement Service Translations",
     "chooseAdOrSubscription": "Choose the right ad or subscription",
+    "@chooseAdOrSubscription": {
+        "description": "Advertisement service main title"
+    },
     "marketingServices": "Benefit from our technical and advertising services to market your institution professionally and increase views and registrations!",
     "specialOffer": "Special Offer",
     "homePageAd": "Home Page Advertisement",
@@ -59,8 +65,10 @@
     "subscribeNow": "Subscribe Now",
     "comingSoon": "Coming Soon...",
     
-    "@comment_home_categories": "Home Screen Categories",
     "university": "University",
+    "@university": {
+        "description": "Home screen categories section"
+    },
     "school": "School", 
     "nursery": "Nursery",
     "kindergarten": "Kindergarten",
@@ -73,8 +81,10 @@
     "scholarships": "Scholarships",
     "volunteerWork": "Volunteer Work",
     
-    "@comment_university_actions": "University Action Buttons",
     "website": "Website",
+    "@website": {
+        "description": "University action buttons section"
+    },
     "numberOfSpecializations": "Number of specializations",
     "minimumCreditHours": "Minimum credit hours",
     "transportationDetails": "Transportation available: Amman, Balqa, Zarqa, Jerash",
@@ -83,13 +93,32 @@
     "campusLocation": "Campus: Ain Al-Basha, Jordan Street - Mobss area",
     "distanceFromCapital": "12 km north of the capital Amman",
     
-    "@comment_university_names": "University Names",
     "ammanAhliaUniversity": "Amman Ahlia University",
+    "@ammanAhliaUniversity": {
+        "description": "University names section"
+    },
     "ammanArabUniversity": "Amman Arab University", 
     "irbidNationalUniversity": "Irbid National University",
     "americanUniversityMadaba": "American University of Madaba",
     
-    "@comment_version": "App Version",
+    "location": "Location",
+    "@location": {
+        "description": "Location information section"
+    },
+    "locationInfo": "Location Information",
+    "close": "Close",
+    "contactInfo": "Contact Information",
+    "yourLocation": "Your Location",
+    "currentLocation": "Current location",
+    "locationFound": "Location found!",
+    "locationServiceDisabled": "Location service is disabled",
+    "locationPermissionDenied": "Location permission denied",
+    "couldNotGetLocation": "Could not get location data",
+    "errorGettingLocation": "Error getting location",
+    
     "version": "Version 1.0.0",
+    "@version": {
+        "description": "App version information"
+    },
     "shamsiehEducationalApp": "Shamsieh Educational App"
 }

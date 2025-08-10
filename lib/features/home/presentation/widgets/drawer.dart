@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../../l10n/app_localizations.dart';
+import '../../../../config/theme/theme_cubit.dart';
 
 class AppDrawer extends StatefulWidget {
   const AppDrawer({super.key});
@@ -30,6 +32,9 @@ class _AppDrawerState extends State<AppDrawer> {
             break;
           case '/guide':
             currentPage = 'guide';
+            break;
+          case '/location':
+            currentPage = 'location';
             break;
           case '/announcements':
             currentPage = 'announcements';
@@ -63,7 +68,9 @@ class _AppDrawerState extends State<AppDrawer> {
         children: [
           // Drawer Header
           DrawerHeader(
-            decoration: const BoxDecoration(color: Color(0xFF1DD3B0)),
+            decoration: BoxDecoration(
+              color: Theme.of(context).colorScheme.primary,
+            ),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
@@ -128,6 +135,22 @@ class _AppDrawerState extends State<AppDrawer> {
               });
               Navigator.pop(context);
               Navigator.pushReplacementNamed(context, '/guide');
+            },
+          ),
+
+          ListTile(
+            leading: const Icon(Icons.location_on),
+            title: Text(localizations.location),
+            tileColor: currentPage == 'location' ? Colors.cyan : null,
+            textColor: currentPage == 'location' ? Colors.white : null,
+            iconColor: currentPage == 'location' ? Colors.white : null,
+            onTap: () {
+              setState(() {
+                currentPage = 'location';
+              });
+              Navigator.pop(context);
+              // Navigate to the actual map screen
+              Navigator.pushNamed(context, '/location');
             },
           ),
 
@@ -205,6 +228,32 @@ class _AppDrawerState extends State<AppDrawer> {
               });
               Navigator.pop(context);
               Navigator.pushReplacementNamed(context, '/about');
+            },
+          ),
+
+          const Divider(),
+
+          // Dark Mode Toggle
+          BlocBuilder<ThemeCubit, ThemeState>(
+            builder: (context, state) {
+              final isDarkMode = state == ThemeState.dark;
+              return ListTile(
+                leading: Icon(
+                  isDarkMode ? Icons.dark_mode : Icons.light_mode,
+                  color: Colors.grey,
+                ),
+                title: Text(isDarkMode ? 'Dark Mode' : 'Light Mode'),
+                trailing: Switch(
+                  value: isDarkMode,
+                  onChanged: (value) {
+                    context.read<ThemeCubit>().toggleTheme();
+                  },
+                  activeColor: Theme.of(context).colorScheme.primary,
+                ),
+                onTap: () {
+                  context.read<ThemeCubit>().toggleTheme();
+                },
+              );
             },
           ),
 
