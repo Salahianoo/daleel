@@ -5,7 +5,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'config/app_config.dart';
 import 'config/dependency_injection.dart';
 
-// API KEY: AIzaSyD9emtZq71D6H1WRAkfrUu1B0ZprBQ0Dd0
 void main() {
   runApp(
     MultiBlocProvider(
