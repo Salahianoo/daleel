@@ -7,6 +7,7 @@ import '../features/auth/domain/usecases/get_current_user_usecase.dart';
 import '../features/auth/presentation/cubit/auth_cubit.dart';
 import '../core/language/language_cubit.dart';
 import '../config/theme/theme_cubit.dart';
+import '../core/navigation/drawer_cubit.dart';
 
 class DependencyInjection {
   static List<BlocProvider> get providers => [
@@ -23,6 +24,9 @@ class DependencyInjection {
     BlocProvider<LanguageCubit>(create: (context) => LanguageCubit()),
 
     BlocProvider<ThemeCubit>(create: (context) => ThemeCubit()),
+
+    // Navigation state dependencies
+    BlocProvider<DrawerCubit>(create: (context) => DrawerCubit()),
   ];
 
   static AuthRepositoryImpl _getAuthRepository() {

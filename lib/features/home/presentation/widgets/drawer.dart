@@ -1,302 +1,154 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../../l10n/app_localizations.dart';
-import '../../../../config/theme/theme_cubit.dart';
+import '../../../../core/widgets/drawer_menu_item.dart';
+import '../../../../core/widgets/app_drawer_header.dart';
+import '../../../../core/widgets/theme_toggle_item.dart';
+import '../../../../core/widgets/logout_menu_item.dart';
+import '../../../../core/services/navigation_service.dart';
+import '../../../../core/navigation/drawer_cubit.dart';
 
-class AppDrawer extends StatefulWidget {
+class AppDrawer extends StatelessWidget {
   const AppDrawer({super.key});
-
-  @override
-  State<AppDrawer> createState() => _AppDrawerState();
-}
-
-class _AppDrawerState extends State<AppDrawer> {
-  String currentPage = 'home'; // Track current page
-
-  @override
-  void initState() {
-    super.initState();
-    // Initialize currentPage based on current route
-    WidgetsBinding.instance.addPostFrameCallback((_) {
-      _updateCurrentPageFromRoute();
-    });
-  }
-
-  void _updateCurrentPageFromRoute() {
-    final String? currentRoute = ModalRoute.of(context)?.settings.name;
-    if (currentRoute != null) {
-      setState(() {
-        switch (currentRoute) {
-          case '/home':
-            currentPage = 'home';
-            break;
-          case '/guide':
-            currentPage = 'guide';
-            break;
-          case '/location':
-            currentPage = 'location';
-            break;
-          case '/announcements':
-            currentPage = 'announcements';
-            break;
-          case '/profile':
-            currentPage = 'profile';
-            break;
-          case '/settings':
-            currentPage = 'settings';
-            break;
-          case '/help':
-            currentPage = 'help';
-            break;
-          case '/about':
-            currentPage = 'about';
-            break;
-          default:
-            currentPage = 'home';
-        }
-      });
-    }
-  }
 
   @override
   Widget build(BuildContext context) {
     final localizations = AppLocalizations.of(context)!;
 
-    return Drawer(
-      child: ListView(
-        padding: EdgeInsets.zero,
-        children: [
-          // Drawer Header
-          DrawerHeader(
-            decoration: BoxDecoration(
-              color: Theme.of(context).colorScheme.primary,
-            ),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                // Logo and app name
-                Row(
-                  children: [
-                    Image.network(
-                      "https://www.shamsieh.education/img/Logo_Shamsieh.png",
-                      height: 40,
-                      width: 40,
-                    ),
-                    const SizedBox(width: 12),
-                    Text(
-                      localizations.shamsiehEducation,
-                      style: const TextStyle(
-                        color: Colors.white,
-                        fontSize: 20,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                  ],
-                ),
-                const SizedBox(height: 8),
-                Text(
-                  localizations.shamsiehEducation,
-                  style: const TextStyle(color: Colors.white70, fontSize: 14),
-                ),
-                const Spacer(),
-                Text(
-                  localizations.educationalPlatform,
-                  style: const TextStyle(color: Colors.white60, fontSize: 12),
-                ),
-              ],
-            ),
-          ),
+    // Update drawer state based on current route
+    final String? currentRoute = ModalRoute.of(context)?.settings.name;
+    if (currentRoute != null) {
+      WidgetsBinding.instance.addPostFrameCallback((_) {
+        context.read<DrawerCubit>().setCurrentPageFromRoute(currentRoute);
+      });
+    }
 
-          // Menu Items
-          ListTile(
-            leading: const Icon(Icons.home),
-            title: Text(localizations.home),
-            tileColor: currentPage == 'home' ? Colors.cyan : null,
-            textColor: currentPage == 'home' ? Colors.white : null,
-            iconColor: currentPage == 'home' ? Colors.white : null,
-            onTap: () {
-              setState(() {
-                currentPage = 'home';
-              });
-              Navigator.pop(context);
-              Navigator.pushReplacementNamed(context, '/home');
-            },
-          ),
+    return BlocBuilder<DrawerCubit, DrawerPage>(
+      builder: (context, currentPage) {
+        return Drawer(
+          child: ListView(
+            padding: EdgeInsets.zero,
+            children: [
+              // Drawer Header
+              const AppDrawerHeader(),
 
-          ListTile(
-            leading: const Icon(Icons.language),
-            title: Text(localizations.chooseLanguage),
-            tileColor: currentPage == 'guide' ? Colors.cyan : null,
-            textColor: currentPage == 'guide' ? Colors.white : null,
-            iconColor: currentPage == 'guide' ? Colors.white : null,
-            onTap: () {
-              setState(() {
-                currentPage = 'guide';
-              });
-              Navigator.pop(context);
-              Navigator.pushReplacementNamed(context, '/guide');
-            },
-          ),
-
-          ListTile(
-            leading: const Icon(Icons.location_on),
-            title: Text(localizations.location),
-            tileColor: currentPage == 'location' ? Colors.cyan : null,
-            textColor: currentPage == 'location' ? Colors.white : null,
-            iconColor: currentPage == 'location' ? Colors.white : null,
-            onTap: () {
-              setState(() {
-                currentPage = 'location';
-              });
-              Navigator.pop(context);
-              // Navigate to the actual map screen
-              Navigator.pushNamed(context, '/location');
-            },
-          ),
-
-          ListTile(
-            leading: const Icon(Icons.announcement),
-            title: Text(localizations.advertisingServices),
-            tileColor: currentPage == 'announcements' ? Colors.cyan : null,
-            textColor: currentPage == 'announcements' ? Colors.white : null,
-            iconColor: currentPage == 'announcements' ? Colors.white : null,
-            onTap: () {
-              setState(() {
-                currentPage = 'announcements';
-              });
-              Navigator.pop(context);
-              Navigator.pushReplacementNamed(context, '/announcements');
-            },
-          ),
-
-          ListTile(
-            leading: const Icon(Icons.person),
-            title: Text(localizations.profile),
-            tileColor: currentPage == 'profile' ? Colors.cyan : null,
-            textColor: currentPage == 'profile' ? Colors.white : null,
-            iconColor: currentPage == 'profile' ? Colors.white : null,
-            onTap: () {
-              setState(() {
-                currentPage = 'profile';
-              });
-              Navigator.pop(context);
-              Navigator.pushReplacementNamed(context, '/profile');
-            },
-          ),
-
-          const Divider(),
-
-          ListTile(
-            leading: const Icon(Icons.settings),
-            title: Text(localizations.settings),
-            tileColor: currentPage == 'settings' ? Colors.cyan : null,
-            textColor: currentPage == 'settings' ? Colors.white : Colors.grey,
-            iconColor: currentPage == 'settings' ? Colors.white : Colors.grey,
-            onTap: () {
-              setState(() {
-                currentPage = 'settings';
-              });
-              Navigator.pop(context);
-              Navigator.pushReplacementNamed(context, '/settings');
-            },
-          ),
-
-          ListTile(
-            leading: const Icon(Icons.help),
-            title: Text(localizations.help),
-            tileColor: currentPage == 'help' ? Colors.cyan : null,
-            textColor: currentPage == 'help' ? Colors.white : Colors.grey,
-            iconColor: currentPage == 'help' ? Colors.white : Colors.grey,
-            onTap: () {
-              setState(() {
-                currentPage = 'help';
-              });
-              Navigator.pop(context);
-              Navigator.pushReplacementNamed(context, '/help');
-            },
-          ),
-
-          ListTile(
-            leading: const Icon(Icons.info),
-            title: Text(localizations.about),
-            tileColor: currentPage == 'about' ? Colors.cyan : null,
-            textColor: currentPage == 'about' ? Colors.white : Colors.grey,
-            iconColor: currentPage == 'about' ? Colors.white : Colors.grey,
-            onTap: () {
-              setState(() {
-                currentPage = 'about';
-              });
-              Navigator.pop(context);
-              Navigator.pushReplacementNamed(context, '/about');
-            },
-          ),
-
-          const Divider(),
-
-          // Dark Mode Toggle
-          BlocBuilder<ThemeCubit, ThemeState>(
-            builder: (context, state) {
-              final isDarkMode = state == ThemeState.dark;
-              return ListTile(
-                leading: Icon(
-                  isDarkMode ? Icons.dark_mode : Icons.light_mode,
-                  color: Colors.grey,
-                ),
-                title: Text(isDarkMode ? 'Dark Mode' : 'Light Mode'),
-                trailing: Switch(
-                  value: isDarkMode,
-                  onChanged: (value) {
-                    context.read<ThemeCubit>().toggleTheme();
-                  },
-                  activeColor: Theme.of(context).colorScheme.primary,
-                ),
+              // Menu Items
+              DrawerMenuItem(
+                icon: Icons.home,
+                title: localizations.home,
+                isSelected: currentPage == DrawerPage.home,
                 onTap: () {
-                  context.read<ThemeCubit>().toggleTheme();
+                  context.read<DrawerCubit>().setCurrentPage(DrawerPage.home);
+                  NavigationService.navigateToPage(context, '/home');
                 },
-              );
-            },
+              ),
+
+              DrawerMenuItem(
+                icon: Icons.language,
+                title: localizations.chooseLanguage,
+                isSelected: currentPage == DrawerPage.guide,
+                onTap: () {
+                  context.read<DrawerCubit>().setCurrentPage(DrawerPage.guide);
+                  NavigationService.navigateToPage(context, '/guide');
+                },
+              ),
+
+              DrawerMenuItem(
+                icon: Icons.location_on,
+                title: localizations.location,
+                isSelected: currentPage == DrawerPage.location,
+                onTap: () {
+                  context.read<DrawerCubit>().setCurrentPage(
+                    DrawerPage.location,
+                  );
+                  NavigationService.navigateToPage(
+                    context,
+                    '/location',
+                    replacement: false,
+                  );
+                },
+              ),
+
+              DrawerMenuItem(
+                icon: Icons.announcement,
+                title: localizations.advertisingServices,
+                isSelected: currentPage == DrawerPage.announcements,
+                onTap: () {
+                  context.read<DrawerCubit>().setCurrentPage(
+                    DrawerPage.announcements,
+                  );
+                  NavigationService.navigateToPage(context, '/announcements');
+                },
+              ),
+
+              DrawerMenuItem(
+                icon: Icons.person,
+                title: localizations.profile,
+                isSelected: currentPage == DrawerPage.profile,
+                onTap: () {
+                  context.read<DrawerCubit>().setCurrentPage(
+                    DrawerPage.profile,
+                  );
+                  NavigationService.navigateToPage(context, '/profile');
+                },
+              ),
+
+              const Divider(),
+
+              DrawerMenuItem(
+                icon: Icons.settings,
+                title: localizations.settings,
+                isSelected: currentPage == DrawerPage.settings,
+                unselectedTextColor: Colors.grey,
+                unselectedIconColor: Colors.grey,
+                onTap: () {
+                  context.read<DrawerCubit>().setCurrentPage(
+                    DrawerPage.settings,
+                  );
+                  NavigationService.navigateToPage(context, '/settings');
+                },
+              ),
+
+              DrawerMenuItem(
+                icon: Icons.help,
+                title: localizations.help,
+                isSelected: currentPage == DrawerPage.help,
+                unselectedTextColor: Colors.grey,
+                unselectedIconColor: Colors.grey,
+                onTap: () {
+                  context.read<DrawerCubit>().setCurrentPage(DrawerPage.help);
+                  NavigationService.navigateToPage(context, '/help');
+                },
+              ),
+
+              DrawerMenuItem(
+                icon: Icons.info,
+                title: localizations.about,
+                isSelected: currentPage == DrawerPage.about,
+                unselectedTextColor: Colors.grey,
+                unselectedIconColor: Colors.grey,
+                onTap: () {
+                  context.read<DrawerCubit>().setCurrentPage(DrawerPage.about);
+                  NavigationService.navigateToPage(context, '/about');
+                },
+              ),
+
+              const Divider(),
+
+              // Dark Mode Toggle
+              const ThemeToggleItem(),
+
+              const Divider(),
+
+              // Logout
+              LogoutMenuItem(
+                onLogout: () {
+                  // Add actual logout logic here
+                  // For example: context.read<AuthCubit>().logout();
+                },
+              ),
+            ],
           ),
-
-          const Divider(),
-
-          ListTile(
-            leading: const Icon(Icons.logout, color: Colors.red),
-            title: Text(localizations.logout),
-            onTap: () {
-              Navigator.pop(context);
-              // Add logout logic here
-              _showLogoutDialog(context);
-            },
-          ),
-        ],
-      ),
-    );
-  }
-
-  void _showLogoutDialog(BuildContext context) {
-    final localizations = AppLocalizations.of(context)!;
-
-    showDialog(
-      context: context,
-      builder: (BuildContext context) {
-        return AlertDialog(
-          title: Text(localizations.confirmLogout),
-          content: Text(localizations.logoutMessage),
-          actions: [
-            TextButton(
-              child: Text(localizations.cancel),
-              onPressed: () {
-                Navigator.of(context).pop();
-              },
-            ),
-            TextButton(
-              child: Text(localizations.logout),
-              onPressed: () {
-                Navigator.of(context).pop();
-                // Add actual logout logic here
-              },
-            ),
-          ],
         );
       },
     );
