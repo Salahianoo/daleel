@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../home/presentation/widgets/custom_app_bar.dart';
 import '../../../../l10n/app_localizations.dart';
-import '../../../../config/theme/theme_cubit.dart';
+import 'package:daleel/cubit/theme_cubit.dart';
 
 class SettingsScreen extends StatelessWidget {
   const SettingsScreen({super.key});

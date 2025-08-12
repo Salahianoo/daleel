@@ -6,7 +6,7 @@ import '../../../../core/widgets/app_drawer_header.dart';
 import '../../../../core/widgets/theme_toggle_item.dart';
 import '../../../../core/widgets/logout_menu_item.dart';
 import '../../../../core/services/navigation_service.dart';
-import '../../../../core/navigation/drawer_cubit.dart';
+import 'package:daleel/cubit/drawer_cubit.dart';
 
 class AppDrawer extends StatelessWidget {
   const AppDrawer({super.key});

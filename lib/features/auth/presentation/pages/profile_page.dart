@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import '../cubit/auth_cubit.dart';
-import '../cubit/auth_state.dart';
+import 'package:daleel/cubit/auth_cubit.dart';
+import 'package:daleel/cubit/auth_state.dart';
 import '../../domain/entities/user.dart';
 import '../../../home/presentation/widgets/custom_app_bar.dart';
 import '../../../../l10n/app_localizations.dart';

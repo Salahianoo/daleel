@@ -1,5 +1,5 @@
 import '../../../../l10n/app_localizations.dart';
-import 'package:daleel/core/language/language_cubit.dart';
+import 'package:daleel/cubit/language_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../home/presentation/widgets/custom_app_bar.dart';
